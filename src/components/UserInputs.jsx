@@ -1,7 +1,7 @@
 import React from "react";
 
 
-function Forms(){
+function UserIputs(){
 return <div>
 <form className="form">
         <div className="input-group">
@@ -39,4 +39,4 @@ return <div>
 
 };
 
-export default Forms;
+export default UserIputs;

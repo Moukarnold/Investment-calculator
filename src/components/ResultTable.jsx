@@ -1,7 +1,7 @@
 import React from "react";
 
 
-function Screening(){
+function ResultTable(){
     return (
     <table className="result">
         <thead>
@@ -27,4 +27,4 @@ function Screening(){
 
 };
 
-export default Screening;
+export default ResultTable;

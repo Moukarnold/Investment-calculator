@@ -1,10 +1,12 @@
 import logo from './assets/investment-calculator-logo.png';
-import Forms from './components/Forms';
-import Screening from './components/Screening';
+import UserIputs from './components/UserInputs';
+import ResultTable from './components/ResultTable';
 
 
 function App() {
- 
+  
+
+  
 
   return (
     <div>
@@ -13,13 +15,13 @@ function App() {
         <h1>Investment Calculator</h1>
       </header>
        
-       <Forms/>
+       <UserIputs/>
       
-       <Screening/>
+       <ResultTable/>
 
       
     </div>
   );
-}
+};
 
 export default App;
