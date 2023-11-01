@@ -4,10 +4,10 @@ import React, { useState } from "react";
 function UserIputs(props){
 
  const initialUserInputs= {
-  "current-savings": 2 ,
-  "yearly-contribution":4,
-  "expected-return": 3 ,
-  "duration": 1
+  "current-savings": 0 ,
+  "yearly-contribution":0,
+  "expected-return": 0 ,
+  "duration": 0
 
  };
 
@@ -27,10 +27,15 @@ function UserIputs(props){
    function handleChange(event){
       const { id, value } = event.target;
 
-      setUserInput( (prevUserInput)=> ({
-         ...prevUserInput,
-         [id]: value,
+      const numericValue = parseFloat(value);
 
+      if (isNaN(numericValue) || numericValue < 0) {
+        return;
+      }
+
+      setUserInput((prevUserInput) => ({
+        ...prevUserInput,
+        [id]: numericValue,
       }));
   }
 
