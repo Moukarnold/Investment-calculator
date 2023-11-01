@@ -47,7 +47,6 @@ if (userInput){
       </header>
        
        <UserIputs onCalculate={calculateHandler} />
-      
        {userInput && <ResultTable data={yearlyData}  initialInvestment={userInput["current-savings"]}/>}
 
       
