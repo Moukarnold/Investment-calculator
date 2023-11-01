@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-function UserIputs(){
+function UserIputs(props){
 
  const initialUserInputs= {
   "current-savings": 2 ,
@@ -16,7 +16,10 @@ function UserIputs(){
  
    function handleSubmit(event){
     event.preventDefault();
+
+     props.onCalculate(userInput);
    }
+
    function handleReset(){
     setUserInput(initialUserInputs);
    }
