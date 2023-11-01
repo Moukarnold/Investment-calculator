@@ -1,10 +1,34 @@
 import logo from './assets/investment-calculator-logo.png';
-import Forms from './components/Forms';
-import Screening from './components/Screening';
+import UserIputs from './components/UserInputs';
+import ResultTable from './components/ResultTable';
 
 
 function App() {
- 
+  const calculateHandler = (userInput) => {
+    // Should be triggered when form is submitted
+
+    const yearlyData = []; // per-year results
+
+    let currentSavings = +userInput['current-savings'];
+    const yearlyContribution = +userInput['yearly-contribution'];
+    const expectedReturn = +userInput['expected-return'] / 100;
+    const duration = +userInput['duration'];
+
+    // The below code calculates yearly results (total savings, interest etc)
+    for (let i = 0; i < duration; i++) {
+      const yearlyInterest = currentSavings * expectedReturn;
+      currentSavings += yearlyInterest + yearlyContribution;
+      yearlyData.push({
+       
+        year: i + 1,
+        yearlyInterest: yearlyInterest,
+        savingsEndOfYear: currentSavings,
+        yearlyContribution: yearlyContribution,
+      });
+    }
+
+  };
+  
 
   return (
     <div>
@@ -13,13 +37,13 @@ function App() {
         <h1>Investment Calculator</h1>
       </header>
        
-       <Forms/>
+       <UserIputs />
       
-       <Screening/>
+       <ResultTable/>
 
       
     </div>
   );
-}
+};
 
 export default App;
