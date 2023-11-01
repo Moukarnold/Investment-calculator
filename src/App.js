@@ -1,13 +1,21 @@
 import logo from './assets/investment-calculator-logo.png';
 import UserIputs from './components/UserInputs';
 import ResultTable from './components/ResultTable';
+import React, { useState } from "react";
 
 
 function App() {
+  const [ userInput, setUserInput] = useState ();
+
+      // Should be triggered when form is submitted
   const calculateHandler = (userInput) => {
-    // Should be triggered when form is submitted
+setUserInput(userInput);
+};
 
     const yearlyData = []; // per-year results
+
+if (userInput){ 
+
 
     let currentSavings = +userInput['current-savings'];
     const yearlyContribution = +userInput['yearly-contribution'];
@@ -24,10 +32,11 @@ function App() {
         yearlyInterest: yearlyInterest,
         savingsEndOfYear: currentSavings,
         yearlyContribution: yearlyContribution,
-      });
+      })
     }
+    };
 
-  };
+  
   
 
   return (
@@ -37,9 +46,9 @@ function App() {
         <h1>Investment Calculator</h1>
       </header>
        
-       <UserIputs />
+       <UserIputs onCalculate={calculateHandler} />
       
-       <ResultTable/>
+       {userInput && <ResultTable data={yearlyData}  initialInvestment={userInput["current-savings"]}/>}
 
       
     </div>
